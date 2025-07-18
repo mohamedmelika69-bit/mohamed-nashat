@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="400_crop_5a56211a44c2b_5a5620fe2de3e.webp">
+    <title>شركة لجوهري</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-gray-800">
+
+    <!-- Header Section -->
+    <header class="shadow-md header-visible">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+                <img src="400_crop_5a56211a44c2b_5a5620fe2de3e.webp" style="width: 40px;" alt="Al-Jahiri Logo" class="rounded-full">
+                <span class="text-2xl font-bold" style="color: var(--primary-blue);">الجوهري</span>
+            </div>
+
+            <!-- Navigation (Hidden on small screens, shown on medium and up) -->
+            <nav class="hidden md:flex space-x-10 text-lg" id="desktop-nav"> <!-- Increased space-x-6 to space-x-10 -->
+                <a href="#hero-section" class="navbar-link transition duration-300" data-lang-key="home" style="margin-left: 30px;">الرئيسية</a>
+                <a href="#products-section" class="navbar-link transition duration-300" data-lang-key="products">المنتجات</a>
+                <a href="#about-section" class="navbar-link transition duration-300" data-lang-key="about">عنا</a>
+                <a href="#projects-section" class="navbar-link transition duration-300" data-lang-key="projects">المشاريع</a>
+                <a href="#contact-form-section" class="navbar-link transition duration-300" data-lang-key="contact">اتصل بنا</a>
+            </nav>
+
+            <!-- Language and Theme Toggles -->
+            <div class="flex items-center space-x-4">
+                <button id="language-toggle" class="font-semibold py-2 px-4 rounded-full transition duration-300" style="color: var(--text-color); hover:color var(--accent-blue);">
+                    EN / AR
+                </button>
+                <button id="theme-toggle" class="focus:outline-none" style="color: var(--text-color); hover:color var(--accent-blue);">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M4 12H3m15.325 5.924l-.707.707M6.707 6.707l-.707-.707m10.61 0l.707-.707M7.414 17.293l-.707.707M12 18a6 6 0 100-12 6 6 0 000 12z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button (Hamburger Icon) -->
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none" style="color: var(--text-color);">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+
+            <!-- Contact Us Button (Hidden on small screens, shown on medium and up) -->
+            <button class="hidden md:block text-white font-semibold py-2 px-6 rounded-full shadow-lg transition duration-300" style="background-color: var(--accent-blue); hover:background-color var(--primary-blue)" data-lang-key="contact_us_btn" id="desktop-contact-btn">
+                <a href="#contact-form-section" class="navbar-link transition duration-300">اتصل بنا</a> 
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay and Sidebar -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+    <div id="mobile-menu" class="mobile-menu">
+        <button id="close-mobile-menu" class="absolute top-4 left-4 focus:outline-none" style="color: var(--text-color); hover:color var(--accent-blue)">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <nav class="flex flex-col space-y-6 text-xl mt-12" id="mobile-nav">
+            <a href="#hero-section" class="transition duration-300" style="color: var(--text-color); hover:color var(--accent-blue);" data-lang-key="home">الرئيسية</a>
+            <a href="#products-section" class="transition duration-300" style="color: var(--text-color); hover:color var(--accent-blue);" data-lang-key="products">المنتجات</a>
+            <a href="#about-section" class="transition duration-300" style="color: var(--text-color); hover:color var(--accent-blue);" data-lang-key="about">عنا</a>
+            <a href="#projects-section" class="transition duration-300" style="color: var(--text-color); hover:color var(--accent-blue);" data-lang-key="projects">المشاريع</a>
+            <a href="#contact-form-section" class="transition duration-300" style="color: var(--text-color); hover:color var(--accent-blue);" data-lang-key="contact">اتصل بنا</a>
+            <button class="text-white font-semibold py-2 px-6 rounded-full shadow-lg transition duration-300 mt-4" style="background-color: var(--accent-blue); hover:background-color var(--primary-blue)" data-lang-key="contact_us_btn" id="mobile-contact-btn">
+                اتصل بنا
+            </button>
+        </nav>
+    </div>
+
+    <!-- Main Content Wrapper for Language Toggle -->
+    <div id="content-wrapper">
+        <!-- Arabic Content -->
+        <div id="arabic-content">
+            <!-- Hero Section -->
+            <section id="hero-section" class="hero-section py-20 md:py-32 text-white relative">
+                <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between relative z-10">
+                    <!-- Left content (Arabic text) -->
+                    <div class="md:w-1/2 text-right mb-8 md:mb-0">
+                        <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 animate-hero-text" style="font-family: 'Times New Roman', Times, serif;">
+
+                        شركة الجوهري لأجهزة القياس العلمية </h1>
+                        <p class="text-xl md:text-2xl mb-8 leading-relaxed animate-hero-text" style="animation-delay: 0.2s;">
+تعد شركة الجوهري من أولى الشركات المتخصصة في مجال أجهزة القياس العلمية في مصر و الشرق الأوسط                        </p>
+                        
+                    </div>
+                    <!-- Right image (Placeholder for the large excavator) -->
+                    <div class="md:w-1/2 flex justify-center md:justify-start">
+                        <img src="400_crop_5a56211a44c2b_5a5620fe2de3e.webp" alt="Heavy Machinery" class="rounded-lg shadow-2xl max-w-full h-auto">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section id="products-section" class="py-16">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl font-bold text-center mb-12" style="color: var(--heading-color);">المنتجات</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="arabic-products-grid">
+                        <!-- Initial Product Cards (Always visible) -->
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300 border-b-4" style="border-color: var(--accent-blue);">
+                            <img src="p2.webp" style="width: 80px;" alt="Product 1" class="rounded-md mb-4 w-full object-cover">
+                            <h3 class="text-2xl font-semibold mb-2" style="color: var(--heading-color);"> أجهزة قياس الأكسجين المذاب</h3>
+                       
+                        </div>
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300 border-b-4" style="border-color: var(--accent-blue);">
+                            <img src="p1.webp" style="width: 100px;" alt="Product 2" class="rounded-md mb-4 w-full object-cover">
+                            <h3 class="text-2xl font-semibold mb-2" style="color: var(--heading-color);"> أجهزة قياس الرطوبة و الحرارة</h3>
+                            
+                        </div>
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300 border-b-4" style="border-color: var(--accent-blue);">
+                            <img src="p3.webp" style="width: 100px;" alt="Product 3" class="rounded-md mb-4 w-full object-cover">
+                            <h3 class="text-2xl font-semibold mb-2" style="color: var(--heading-color);"> أجهزة قياس درجة الحموضة</h3>
+                        </div>
+
+                        <!-- Hidden Product Cards (Initially hidden) -->
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300 border-b-4 hidden-product-card" style="border-color: var(--accent-blue);">
+                            <img src="p4.webp" style="width: 100px;" alt="Product 4" class="rounded-md mb-4 w-full object-cover">
+                            <h3 class="text-2xl font-semibold mb-2" style="color: var(--heading-color);">أجهزة قياس الكلور</h3>
+                        </div>
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300 border-b-4 hidden-product-card" style="border-color: var(--accent-blue);">
+                            <img src="p5.webp" style="width: 100px;" alt="Product 5" class="rounded-md mb-4 w-full object-cover">
+                            <h3 class="text-2xl font-semibold mb-2" style="color: var(--heading-color);"> أجهزة قياس الغازات</h3>
+                        </div>
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300 border-b-4 hidden-product-card" style="border-color: var(--accent-blue);">
+                            <img src="p6.webp" style="width: 100px;" alt="Product 6" class="rounded-md mb-4 w-full object-cover">
+                            <h3 class="text-2xl font-semibold mb-2" style="color: var(--heading-color);"> الميزان</h3>
+                        </div>
+                    </div>
+                    <div class="text-center mt-12">
+                        <button id="toggle-products-ar" class="text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105" style="background-color: var(--accent-blue); hover:background-color var(--primary-blue)">
+                            شاهد المزيد من المنتجات
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Choose Us Section -->
+            <section id="about-section" class="py-16 text-white" style="background-color: var(--primary-blue);">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-4xl font-bold mb-12">لماذا تختار الجاهري؟</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300" style="background-color: var(--accent-blue);">
+                            <i class="fas fa-handshake text-5xl mb-4" style="color: var(--accent-yellow);"></i>
+                            <h3 class="text-2xl font-semibold mb-2"  style="color: white;">الخبرة والموثوقية</h3>
+                            <p style="color: var(--text-color);"  style="color: white;">  يمكننا شحن الأجهزة لأي مكان داخل أو خارج مصر  </p>
+                        </div>
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300" style="background-color: var(--accent-blue);">
+                            <i class="fas fa-lightbulb text-5xl mb-4" style="color: var(--accent-yellow);"></i>
+                            <h3 class="text-2xl font-semibold mb-2"  style="color: white;">حلول مبتكرة</h3>
+                            <p style="color: var(--text-color);"  style="color: white;">نقدم أفكاراً وحلولاً إبداعية لتلبية احتياجات مشاريعك.</p>
+                        </div>
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300" style="background-color: var(--accent-blue);">
+                            <i class="fas fa-users text-5xl mb-4" style="color: var(--accent-yellow);"></i>
+                            <h3 class="text-2xl font-semibold mb-2"  style="color: white;">فريق متخصص</h3>
+                            <p style="color: var(--text-color);">فريق عمل مؤهل ومتخصص لتقديم أفضل الخدمات بجودة عالية.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects-section" class="py-16">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl font-bold text-center mb-12" style="color: var(--heading-color);">أحدث المشاريع</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="arabic-projects-grid">
+                        <!-- Initial Project Cards (Always visible) -->
+                        <div class="rounded-lg shadow-md p-6 flex flex-col md:flex-row items-center md:items-start gap-6 transform hover:shadow-lg transition duration-300" style="background-color: var(--card-bg);">
+                            <img src="m1.jpg" alt="Project 1" class="rounded-md w-full md:w-48 h-32 object-cover flex-shrink-0">
+                            <div class="text-right">
+                                <h3 class="text-2xl font-semibold mb-2" style="color: var(--heading-color);">سيلاج تفريغ الهواء</h3>
+                                <p style="color: var(--text-color);">
+ماكينة كبس السيلاج فى بالات بنظام تفريغ الهواء 
+📍آلية العمل:-
+يتم تعبئة السيلاج في أكياس بلاستيك ثم يتم تفريغ الهواء بالكامل بنظام الفاكيوم                                </p>
+                                <a href="#" class="hover:underline" style="color: var(--link-color);">&rarr;</a>
+                            </div>
+                        </div>
+                        <div class="rounded-lg shadow-md p-6 flex flex-col md:flex-row items-center md:items-start gap-6 transform hover:shadow-lg transition duration-300" style="background-color: var(--card-bg);">
+                            <img src="m2.jpg" alt="Project 2" class="rounded-md w-full md:w-48 h-32 object-cover flex-shrink-0">
+                            <div class="text-right">
+                                <h3 class="text-2xl font-semibold mb-2" style="color: var(--heading-color);">خط انتاج ال دراي فود  </h3>
+                                <p style="color: var(--text-color);">
+ربنا وصانا علي الحيوانات في ايات كتير من القران الكريم 
+*عشان كده لازم نهتم بصحتهم
+-واول خطوه للاهتمام بصحتهم هي الاهتمام باكلهم                                </p>
+                                <a href="#" class="hover:underline" style="color: var(--link-color);">  &rarr;</a>
+                            </div>
+                        </div>
+                        <!-- Hidden Project Cards -->
+                        
+                       
+                    </div>
+                    <div class="text-center mt-12">
+                        
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Form Section -->
+            <section id="contact-form-section" class="py-16">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl font-bold text-center mb-12" style="color: var(--heading-color);">اتصل بنا</h2>
+                    <div class="max-w-3xl mx-auto contact-form-container">
+                        <form action="#" method="POST" class="space-y-6 text-right">
+                            <div>
+                                <label for="name-ar">الاسم الكامل</label>
+                                <input type="text" id="name-ar" name="name" required placeholder="أدخل اسمك الكامل">
+                            </div>
+                            <div>
+                                <label for="email-ar">البريد الإلكتروني</label>
+                                <input type="email" id="email-ar" name="email" required placeholder="أدخل بريدك الإلكتروني">
+                            </div>
+                            <div>
+                                <label for="subject-ar">الموضوع</label>
+                                <input type="text" id="subject-ar" name="subject" required placeholder="موضوع رسالتك">
+                            </div>
+                            <div>
+                                <label for="message-ar">رسالتك</label>
+                                <textarea id="message-ar" name="message" rows="5" required placeholder="اكتب رسالتك هنا..."></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit">
+                                    إرسال الرسالة
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer Section -->
+            <footer class="py-12" style="background-color: var(--footer-bg); color: var(--footer-text);">
+                <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-right">
+                    <!-- About Us -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">عن الجاهري</h3>
+                        <p class="leading-relaxed">
+شركة الجوهري لأجهزة القياس العلمية                        </p>
+                    </div>
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">روابط سريعة</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#hero-section" class="hover:text-white transition duration-300" style="color: var(--footer-text);">الرئيسية</a></li>
+                            <li><a href="#products-section" class="hover:text-white transition duration-300" style="color: var(--footer-text);">المنتجات</a></li>
+                            <li><a href="#projects-section" class="hover:text-white transition duration-300" style="color: var(--footer-text);">المشاريع</a></li>
+                            <li><a href="#contact-form-section" class="hover:text-white transition duration-300" style="color: var(--footer-text);">اتصل بنا</a></li>
+                        </ul>
+                    </div>
+                    <!-- Contact Info -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">اتصل بنا</h3>
+                        <p class="mb-2">
+                          
+                        </p>
+                        <p class="mb-2">
+                            <i class="fas fa-phone ml-2"></i>  00201001160396 - yasser elgohary
+                        </p>
+                        <p class="mb-2">
+                            <i class="fas fa-envelope ml-2"></i>  yasser_elgohary2000@yahoo.com
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center mt-8" style="color: var(--medium-gray);">
+                    &copy; 2025 محمد نشأت.
+                </div>
+            </footer>
+        </div>
+
+        <!-- English Content (Hidden by default) -->
+        <div id="english-content" lang="en" dir="ltr">
+            <!-- Hero Section -->
+            <section id="hero-section-en" class="hero-section py-20 md:py-32 text-white relative">
+                <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between relative z-10">
+                    <!-- Left content (English text) -->
+                    <div class="md:w-1/2 text-left mb-8 md:mb-0">
+                        <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 animate-hero-text">
+                            Al-Jawhari Scientific Measuring Instruments Company
+                        </h1>
+                        <p class="text-xl md:text-2xl mb-8 leading-relaxed animate-hero-text" style="animation-delay: 0.2s;">
+Al-Jawhary Company is one of the first companies specialized in the field of scientific measuring devices in Egypt and the Middle East.                        </p>
+                        
+                    </div>
+                    <!-- Right image (Placeholder for the large excavator) -->
+                    <div class="md:w-1/2 flex justify-center md:justify-end">
+                        <img src="400_crop_5a56211a44c2b_5a5620fe2de3e.webp" alt="Heavy Machinery" class="rounded-lg shadow-2xl max-w-full h-auto">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section id="products-section-en" class="py-16">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl font-bold text-center mb-12" style="color: var(--heading-color);">Products</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="english-products-grid">
+                        <!-- Initial Product Cards (Always visible) -->
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300 border-b-4" style="border-color: var(--accent-blue);">
+                            <img src="p2.webp" style="width: 60px;" alt="Product 1" class="rounded-md mb-4 w-full object-cover">
+                            <h3 class="text-2xl font-semibold mb-2" style="color: var(--heading-color);">dissolved oxygen meters</h3>
+                        </div>
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300 border-b-4" style="border-color: var(--accent-blue);">
+                            <img src="p1.webp" style="width: 100px;" alt="Product 2" class="rounded-md mb-4 w-full object-cover">
+                            <h3 class="text-2xl font-semibold mb-2" style="color: var(--heading-color);">Humidity and temperature measuring devices</h3>
+                        </div>
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300 border-b-4" style="border-color: var(--accent-blue);">
+                            <img src="p3.webp" style="width: 100px;" alt="Product 3" class="rounded-md mb-4 w-full object-cover">
+                            <h3 class="text-2xl font-semibold mb-2" style="color: var(--heading-color);">pH meters</h3>
+                        </div>
+
+                        <!-- Hidden Product Cards (Initially hidden) -->
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300 border-b-4 hidden-product-card" style="border-color: var(--accent-blue);">
+                            <img src="p4.webp" style="width: 100px;" alt="Product 4" class="rounded-md mb-4 w-full object-cover">
+                            <h3 class="text-2xl font-semibold mb-2" style="color: var(--heading-color);"> FREE AND TOTAL CHLORINE TESTER </h3>
+                        </div>
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300 border-b-4 hidden-product-card" style="border-color: var(--accent-blue);">
+                            <img src="p5.webp" style="width: 100px;" alt="Product 5" class="rounded-md mb-4 w-full object-cover">
+                            <h3 class="text-2xl font-semibold mb-2" style="color: var(--heading-color);">Gas Detector</h3>
+                        </div>
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300 border-b-4 hidden-product-card" style="border-color: var(--accent-blue);">
+                            <img src="p6.webp" style="width: 100px;" alt="Product 6" class="rounded-md mb-4 w-full object-cover">
+                            <h3 class="text-2xl font-semibold mb-2" style="color: var(--heading-color);">SCALE AND BALANCE</h3>
+                        </div>
+                    </div>
+                    <div class="text-center mt-12">
+                        <button id="toggle-products-en" class="text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105" style="background-color: var(--accent-blue); hover:background-color var(--primary-blue);">
+                            View More Products
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Choose Us Section -->
+            <section id="about-section-en" class="py-16 text-white" style="background-color: var(--primary-blue);">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-4xl font-bold mb-12">Why Choose Al-Jahiri?</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300" style="background-color: var(--accent-blue);">
+                            <i class="fas fa-handshake text-5xl mb-4" style="color: var(--accent-yellow);"></i>
+                            <h3 class="text-2xl font-semibold mb-2" style="color: white;">Experience & Reliability</h3>
+                            <p style="color: var(--text-color);"  style="color: white;">Years of experience in construction and development, ensuring the best results.</p>
+                        </div>
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300" style="background-color: var(--accent-blue);">
+                            <i class="fas fa-lightbulb text-5xl mb-4" style="color: var(--accent-yellow);"></i>
+                            <h3 class="text-2xl font-semibold mb-2"  style="color: white;">Innovative Solutions</h3>
+                            <p style="color: var(--text-color);"  style="color: white;">We offer creative ideas and effective solutions to meet your project needs.</p>
+                        </div>
+                        <div class="rounded-lg shadow-xl card-sm-visible flex flex-col items-center text-center transform hover:scale-105 transition duration-300" style="background-color: var(--accent-blue);">
+                            <i class="fas fa-users text-5xl mb-4" style="color: var(--accent-yellow);"></i>
+                            <h3 class="text-2xl font-semibold mb-2"  style="color: white;">Specialized Team</h3>
+                            <p style="color: var(--text-color);"  style="color: white;">A qualified and specialized team to provide the best services with high quality.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects-section-en" class="py-16">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl font-bold text-center mb-12" style="color: var(--heading-color);">Latest Projects</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="english-projects-grid">
+                        <!-- Initial Project Cards (Always visible) -->
+                        <div class="rounded-lg shadow-md p-6 flex flex-col md:flex-row items-center md:items-start gap-6 transform hover:shadow-lg transition duration-300" style="background-color: var(--card-bg);">
+                            <img src="m1.jpg" alt="Project 1" class="rounded-md w-full md:w-48 h-32 object-cover flex-shrink-0">
+                            <div class="text-left">
+                                <h3 class="text-2xl font-semibold mb-2" style="color: var(--heading-color);">Vacuum silage</h3>
+                                <p style="color: var(--text-color);">
+📍Mechanism of operation:
+The silage is packed into plastic bags, then the air is completely removed using a vacuum system.                                </p>
+                                <a href="#" class="hover:underline" style="color: var(--link-color);">  &rarr;</a>
+                            </div>
+                        </div>
+                        <div class="rounded-lg shadow-md p-6 flex flex-col md:flex-row items-center md:items-start gap-6 transform hover:shadow-lg transition duration-300" style="background-color: var(--card-bg);">
+                            <img src="m2.jpg" alt="Project 2" class="rounded-md w-full md:w-48 h-32 object-cover flex-shrink-0">
+                            <div class="text-left">
+                                <h3 class="text-2xl font-semibold mb-2" style="color: var(--heading-color);">Dry food production line</h3>
+                                <p style="color: var(--text-color);">
+*God has commanded us to treat animals with respect in many verses of the Holy Quran. *That's why we must take care of their health.                                </p>
+                                <a href="#" class="hover:underline" style="color: var(--link-color);"> &rarr;</a>
+                            </div>
+                        </div>
+                        <!-- Hidden Project Cards -->
+                       
+                       
+                    </div>
+                    <div class="text-center mt-12">
+                        
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Form Section -->
+            <section id="contact-form-section-en" class="py-16">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl font-bold text-center mb-12" style="color: var(--heading-color);">Contact Us</h2>
+                    <div class="max-w-3xl mx-auto contact-form-container">
+                        <form action="#" method="POST" class="space-y-6 text-left">
+                            <div>
+                                <label for="name-en">Full Name</label>
+                                <input type="text" id="name-en" name="name" required placeholder="Enter your full name">
+                            </div>
+                            <div>
+                                <label for="email-en">Email Address</label>
+                                <input type="email" id="email-en" name="email" required placeholder="Enter your email address">
+                            </div>
+                            <div>
+                                <label for="subject-en">Subject</label>
+                                <input type="text" id="subject-en" name="subject" required placeholder="Subject of your message">
+                            </div>
+                            <div>
+                                <label for="message-en">Your Message</label>
+                                <textarea id="message-en" name="message" rows="5" required placeholder="Type your message here..."></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer Section -->
+            <footer class="py-12" style="background-color: var(--footer-bg); color: var(--footer-text);">
+                <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                    <!-- About Us -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">About Al-Jahiri</h3>
+                        <p class="leading-relaxed">
+Al-Jawhari Scientific Measuring Instruments Company                        </p>
+                    </div>
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Quick Links</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#hero-section-en" class="hover:text-white transition duration-300" style="color: var(--footer-text);">Home</a></li>
+                            <li><a href="#products-section-en" class="hover:text-white transition duration-300" style="color: var(--footer-text);">Products</a></li>
+                            <li><a href="#projects-section-en" class="hover:text-white transition duration-300" style="color: var(--footer-text);">Projects</a></li>
+                            <li><a href="#contact-form-section-en" class="hover:text-white transition duration-300" style="color: var(--footer-text);">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Contact Info -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Contact Us</h3>
+                        
+                        <p class="mb-2">
+                            <i class="fas fa-phone mr-2"></i>  00201001160396 - yasser elgohary
+                        </p>
+                        <p class="mb-2">
+                            <i class="fas fa-envelope mr-2"></i>  yasser_elgohary2000@yahoo.com
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center mt-8" style="color: var(--medium-gray);">
+                    &copy; 2025 By Mohamed Nashat 
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="fixed bottom-8 left-8 text-white p-4 rounded-full shadow-lg transition-all duration-300 opacity-0 transform translate-y-4" style="background-color: var(--accent-blue);">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+ <script src="main.js"></script>
+</body>
+</html>

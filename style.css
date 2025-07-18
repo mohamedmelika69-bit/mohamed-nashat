@@ -1,0 +1,249 @@
+
+        /* Define a custom color palette for easier management and consistency */
+        :root {
+            /* Light Mode Colors */
+            --primary-blue: #005691; /* Deeper, corporate blue */
+            --accent-blue: #007BFF; /* A classic, vibrant blue for accents */
+            --accent-yellow: #FFBF00; /* A warmer, golden yellow */
+            --dark-gray: #2C3E50; /* Dark slate gray for text/background */
+            --medium-gray: #6C757D; /* Subtler text */
+            --light-gray: #F8F9FA; /* Very light gray/off-white background */
+            --white: #FFFFFF;
+            --header-bg: var(--white);
+            --card-bg: var(--white);
+            --section-bg: var(--light-gray);
+            --text-color: var(--dark-gray);
+            --heading-color: var(--primary-blue);
+            --link-color: var(--accent-blue);
+            --footer-bg: var(--dark-gray);
+            --footer-text: #E0E0E0;
+        }
+
+        /* Dark Mode Colors */
+        body.dark-mode {
+            --primary-blue: #81A2B9; /* Muted, cool blue for dark mode headings */
+            --accent-blue: #6CB4EE; /* Brighter, more visible accent blue for dark mode */
+            --accent-yellow: #FFD700; /* Golden yellow, good contrast */
+            --dark-gray: #E0E0E0; /* Light text for dark background */
+            --medium-gray: #A0A0A0; /* Medium light text */
+            --light-gray: #1A202C; /* Dark background */
+            --white: #2D3748; /* Darker card/element background */
+            --header-bg: #1A202C;
+            --card-bg: #2D3748;
+            --section-bg: #1A202C;
+            --text-color: var(--dark-gray);
+            --heading-color: var(--primary-blue);
+            --link-color: var(--accent-blue);
+            --footer-bg: #1A202C;
+            --footer-text: var(--medium-gray);
+        }
+
+        body {
+            font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+            background-color: var(--section-bg);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .hero-section {
+            background-image: url('e26d352c8710bab40b472bca96997506.jpg'); /* Background with primary blue */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden; /* Hide overflow for parallax effect */
+        }
+        /* Custom styles for hero section to match the image's blue overlay */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 87, 145, 0.459), rgba(235, 213, 91, 0.6)); /* Deeper blue gradient overlay */
+            z-index: 0;
+        }
+        body.dark-mode .hero-section::before {
+            background: linear-gradient(to right, rgba(129, 162, 185, 0.9), rgba(108, 180, 238, 0.6)); /* Dark mode gradient */
+        }
+        .hero-section .container {
+            position: relative;
+            z-index: 1; /* Ensure content is above the overlay */
+        }
+
+        /* Keyframe for subtle hero text animation */
+        @keyframes fadeInSlideRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-hero-text {
+            animation: fadeInSlideRight 1s ease-out forwards;
+        }
+        .animate-hero-button {
+            animation: fadeInSlideRight 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        /* Mobile navigation overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            display: none; /* Hidden by default */
+        }
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: 0; /* Starts from right for RTL */
+            width: 70%;
+            height: 100%;
+            background-color: var(--white);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+            transform: translateX(100%); /* Hidden off-screen to the right */
+            transition: transform 0.3s ease-out;
+            z-index: 101;
+            padding: 2rem;
+        }
+        .mobile-menu.open {
+            transform: translateX(0); /* Slides in */
+        }
+
+        /* Increased visibility for header/navbar */
+        .header-visible {
+            padding-top: 1.5rem; /* More vertical padding */
+            padding-bottom: 1.5rem; /* More vertical padding */
+            border-bottom: 3px solid var(--accent-blue); /* A subtle border to define its edge */
+            background-color: var(--header-bg);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .navbar-link {
+            font-weight: 600; /* Make navigation links bolder */
+            color: var(--text-color); /* Ensure good contrast */
+        }
+        .navbar-link:hover {
+            color: var(--accent-blue); /* Accent color on hover */
+        }
+
+        /* Card specific styles for smaller and more visible appearance */
+        .card-sm-visible {
+            padding: 1.25rem; /* Reduced padding from p-6 (1.5rem) to p-5 (1.25rem) */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Stronger shadow */
+            border: 1px solid rgba(0, 123, 255, 0.2); /* Subtle full border */
+            background-color: var(--card-bg);
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        body.dark-mode .card-sm-visible {
+            border-color: rgba(108, 180, 238, 0.3); /* Dark mode border color */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        }
+        .card-sm-visible img {
+            height: 10rem; /* Reduced image height from h-48 (12rem) to h-40 (10rem) */
+        }
+
+        /* Section backgrounds and text colors */
+        section {
+            background-color: var(--section-bg);
+            transition: background-color 0.3s ease;
+        }
+        section h2, section h3, section h4 {
+            color: var(--heading-color);
+            transition: color 0.3s ease;
+        }
+        section p, section li {
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+        section a {
+            color: var(--link-color);
+            transition: color 0.3s ease;
+        }
+
+        /* Footer specific styles */
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        footer h3 {
+            color: var(--footer-text); /* Ensure headings are visible in footer */
+        }
+        footer a {
+            color: var(--footer-text);
+        }
+        footer a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Language specific display */
+        #english-content {
+            display: none; /* Hidden by default */
+        }
+
+        /* Form specific styles */
+        .contact-form-container {
+            background-color: var(--card-bg);
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 2.5rem;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-form-container label {
+            color: var(--heading-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .contact-form-container input[type="text"],
+        .contact-form-container input[type="email"],
+        .contact-form-container textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: 0.375rem;
+            background-color: var(--section-bg);
+            color: var(--text-color);
+            transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+        }
+        .contact-form-container input[type="text"]:focus,
+        .contact-form-container input[type="email"]:focus,
+        .contact-form-container textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+        .contact-form-container textarea {
+            min-height: 8rem;
+            resize: vertical;
+        }
+        .contact-form-container button[type="submit"] {
+            background-color: var(--accent-blue);
+            color: var(--white);
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .contact-form-container button[type="submit"]:hover {
+            background-color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Hidden service cards */
+        .hidden-product-card { /* Changed from hidden-service-card */
+            display: none;
+        }
+        /* Hidden project cards */
+        .hidden-project-card {
+            display: none;
+        }
+    
